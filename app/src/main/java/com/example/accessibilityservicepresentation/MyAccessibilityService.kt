@@ -3,6 +3,8 @@ package com.example.accessibilityservicepresentation
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
@@ -39,6 +41,9 @@ class MyAccessibilityService: AccessibilityService() {
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         printAllNodes(event, event?.source) {
             it.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+            Handler(Looper.getMainLooper()).postDelayed({
+                it.performAction(AccessibilityNodeInfo.ACTION_CLEAR_FOCUS)
+            }, 1000)
         }
     }
 

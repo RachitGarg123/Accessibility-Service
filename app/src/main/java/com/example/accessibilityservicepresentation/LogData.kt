@@ -31,7 +31,8 @@ fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, 
     Log.i(tag, "isVisibleToUser ----> ${nodeInfo.isVisibleToUser}")
     Log.i(tag, "windowId ----> ${nodeInfo.windowId}")
 
-    if(nodeInfo.text == CLICK_BUTTON && i++ == 0) {
+    if(nodeInfo.text == CLICK_BUTTON && i == 0) {
+        ++i
         performAction(nodeInfo)
     }
 
