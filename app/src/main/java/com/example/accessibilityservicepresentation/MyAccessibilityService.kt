@@ -19,7 +19,12 @@ class MyAccessibilityService: AccessibilityService() {
         info.apply {
 //            we can use the packageNames property to use the service for the provided apps else it will apply to all apps
             packageNames = arrayOf(DEMO_APP)
+/*            examples of event Types
+            AccessibilityEvent.TYPE_VIEW_FOCUSED or AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or AccessibilityEvent.TYPE_VIEW_CLICKED or
+            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED or AccessibilityEvent.TYPE_WINDOWS_CHANGED or AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED or
+            AccessibilityEvent.TYPE_VIEW_SCROLLED */
             eventTypes = AccessibilityEvent.TYPES_ALL_MASK
+//            flags can be used to access gestures events like fingerprint or touch exploration mode
             flags = AccessibilityServiceInfo.DEFAULT
             feedbackType = AccessibilityServiceInfo.FEEDBACK_ALL_MASK
             notificationTimeout = 100
