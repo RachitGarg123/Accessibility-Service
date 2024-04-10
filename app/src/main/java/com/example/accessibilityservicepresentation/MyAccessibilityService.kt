@@ -3,8 +3,10 @@ package com.example.accessibilityservicepresentation
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.content.Intent
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
+import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import com.example.accessibilityservicepresentation.AppConstants.DEMO_APP
 
@@ -30,7 +32,9 @@ class MyAccessibilityService: AccessibilityService() {
        event.source which gives us an object of Accessibility Node Info through we can
        traverse the entire tree using recursion */
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
-
+        printAllNodes(event, event?.source) {
+            performGlobalAction(AccessibilityNodeInfo.ACTION_CLICK)
+        }
     }
 
 /*     this is the required method
@@ -41,7 +45,7 @@ class MyAccessibilityService: AccessibilityService() {
 
     }
 
-    // this is optional method and will be called when the service is ending or unbinding itself
+    // this is optional method and will be called when the service is shutting down
     // use this method to perform work you need to before the service stops
     override fun onUnbind(intent: Intent?): Boolean {
         return super.onUnbind(intent)
