@@ -6,8 +6,9 @@ import android.view.accessibility.AccessibilityNodeInfo
 import com.example.accessibilityservicepresentation.AppConstants.CLICK_BUTTON
 
 val tag = "MyAccessibilityService"
+var i = 0
 
-fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, performAction: ()-> Unit) {
+fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, performAction: (AccessibilityNodeInfo)-> Unit) {
 
     // base case
     if(nodeInfo == null || event == null) return
@@ -30,8 +31,8 @@ fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, 
     Log.i(tag, "isVisibleToUser ----> ${nodeInfo.isVisibleToUser}")
     Log.i(tag, "windowId ----> ${nodeInfo.windowId}")
 
-    if(nodeInfo.text == CLICK_BUTTON && nodeInfo.isFocused) {
-        performAction()
+    if(nodeInfo.text == CLICK_BUTTON && i++ == 0) {
+        performAction(nodeInfo)
     }
 
     // calling recursively for every child

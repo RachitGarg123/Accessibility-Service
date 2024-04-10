@@ -38,7 +38,7 @@ class MyAccessibilityService: AccessibilityService() {
        traverse the entire tree using recursion */
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         printAllNodes(event, event?.source) {
-            performGlobalAction(AccessibilityNodeInfo.ACTION_CLICK)
+            it.performAction(AccessibilityNodeInfo.ACTION_CLICK)
         }
     }
 
