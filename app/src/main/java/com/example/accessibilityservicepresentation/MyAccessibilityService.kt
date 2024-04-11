@@ -39,11 +39,15 @@ class MyAccessibilityService: AccessibilityService() {
        event.source which gives us an object of Accessibility Node Info through we can
        traverse the entire tree using recursion */
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
+        val nodeInfo = findFocus(AccessibilityNodeInfo.ACTION_FOCUS)
+        Log.i(tag, "nodeInfo 1----> $nodeInfo")
         printAllNodes(event, event?.source) {
             it.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+             /*This is Delayed this much because we are clicking on another app's ui
+             which can take some time in rendering the view*/
             Handler(Looper.getMainLooper()).postDelayed({
                 it.performAction(AccessibilityNodeInfo.ACTION_CLEAR_FOCUS)
-            }, 1000)
+            }, 10000)
         }
     }
 
