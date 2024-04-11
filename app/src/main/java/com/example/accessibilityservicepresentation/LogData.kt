@@ -21,9 +21,7 @@ fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, 
     Log.i(tag, "nodeInfo ----> $nodeInfo")
     Log.i(tag, "childCount ----> ${nodeInfo.childCount}")
     Log.i(tag, "text ----> ${nodeInfo.text}")
-    if(nodeInfo.viewIdResourceName != null) {
-        Log.i(tag, "viewIdResourceName ----> ${nodeInfo.viewIdResourceName}")
-    }
+    Log.i(tag, "viewIdResourceName ----> ${nodeInfo.viewIdResourceName}")
     Log.i(tag, "className ----> ${nodeInfo.className}")
     Log.i(tag, "packageName ----> ${nodeInfo.packageName}")
     Log.i(tag, "isClickable ----> ${nodeInfo.isClickable}")

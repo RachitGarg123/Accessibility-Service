@@ -27,7 +27,7 @@ class MyAccessibilityService: AccessibilityService() {
             AccessibilityEvent.TYPE_VIEW_SCROLLED */
             eventTypes = AccessibilityEvent.TYPES_ALL_MASK
 //            flags can be used to access gestures events like fingerprint or touch exploration mode
-            flags = AccessibilityServiceInfo.DEFAULT
+            flags = (AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or AccessibilityServiceInfo.CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT)
             feedbackType = AccessibilityServiceInfo.FEEDBACK_ALL_MASK
             notificationTimeout = 100
         }
@@ -40,7 +40,6 @@ class MyAccessibilityService: AccessibilityService() {
        traverse the entire tree using recursion */
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         val nodeInfo = findFocus(AccessibilityNodeInfo.ACTION_FOCUS)
-        Log.i(tag, "nodeInfo 1----> $nodeInfo")
         printAllNodes(event, event?.source) {
             it.performAction(AccessibilityNodeInfo.ACTION_CLICK)
              /*This is Delayed this much because we are clicking on another app's ui
