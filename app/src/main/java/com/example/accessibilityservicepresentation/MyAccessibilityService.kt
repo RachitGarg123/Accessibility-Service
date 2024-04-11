@@ -18,10 +18,6 @@ class MyAccessibilityService: AccessibilityService() {
         info.apply {
 //            we can use the packageNames property to use the service for the provided apps else it will apply to all apps
 //            packageNames = arrayOf(DEMO_APP)
-/*            examples of event Types
-            AccessibilityEvent.TYPE_VIEW_FOCUSED or AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or AccessibilityEvent.TYPE_VIEW_CLICKED or
-            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED or AccessibilityEvent.TYPE_WINDOWS_CHANGED or AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED or
-            AccessibilityEvent.TYPE_VIEW_SCROLLED */
             eventTypes = AccessibilityEvent.TYPES_ALL_MASK
 //            flags can be used to access gestures events like fingerprint or touch exploration mode
             flags = (AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or AccessibilityServiceInfo.CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT)
@@ -38,7 +34,7 @@ class MyAccessibilityService: AccessibilityService() {
        event.source which gives us an object of Accessibility Node Info through we can
        traverse the entire tree using recursion */
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
-        printAllNodes(event, event?.source) {
+        printAllNodes(event, rootInActiveWindow) {
             it.performAction(AccessibilityNodeInfo.ACTION_CLICK)
              /*This is Delayed this much because we are clicking on another app's ui
              which can take some time in rendering the view*/
