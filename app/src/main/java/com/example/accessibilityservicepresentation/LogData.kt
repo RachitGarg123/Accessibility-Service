@@ -5,7 +5,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import com.example.accessibilityservicepresentation.AppConstants.CLICK_BUTTON
 
-val tag = "MyAccessibilityService"
+const val tag = "MyAccessibilityService"
 var i = 0
 
 fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, performAction: (AccessibilityNodeInfo)-> Unit) {
