@@ -2,4 +2,8 @@
     <string name="app_name">Accessibility Service Presentation</string>
     <string name="accessibility_service_description">My Description</string>
     <string name="activate_accessibility_service">Activate Accessibility Service</string>
+    <string name="power">Power</string>
+    <string name="volume">Vol +</string>
+    <string name="scroll">Scroll</string>
+    <string name="swipe">Swipe</string>
 </resources>

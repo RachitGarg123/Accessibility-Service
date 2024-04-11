@@ -17,7 +17,7 @@ class MyAccessibilityService: AccessibilityService() {
         val info = AccessibilityServiceInfo()
         info.apply {
 //            we can use the packageNames property to use the service for the provided apps else it will apply to all apps
-            packageNames = arrayOf(DEMO_APP)
+//            packageNames = arrayOf(DEMO_APP)
 /*            examples of event Types
             AccessibilityEvent.TYPE_VIEW_FOCUSED or AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or AccessibilityEvent.TYPE_VIEW_CLICKED or
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED or AccessibilityEvent.TYPE_WINDOWS_CHANGED or AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED or
