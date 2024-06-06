@@ -3,17 +3,16 @@ package com.example.accessibilityservicepresentation
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
-import com.example.accessibilityservicepresentation.AppConstants.CLICK_BUTTON
 
 const val tag = "MyAccessibilityService"
-var i = 0
+const val CLICK_BUTTON = "CLICK BUTTON"
 
 fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, performAction: (AccessibilityNodeInfo)-> Unit) {
 
     // base case
     if(nodeInfo == null || event == null) return
 
-    // we can get all these data and more using accessibilityService and AccessibilityNodeInfo
+    // we can get all these data and more using AccessibilityNodeInfo
     Log.i(tag, "event ---> $event")
     Log.i(tag, "action ---> ${event.action}")
     Log.i(tag, "eventTime ---> ${event.eventTime}")
@@ -31,8 +30,7 @@ fun printAllNodes(event: AccessibilityEvent?, nodeInfo: AccessibilityNodeInfo?, 
     Log.i(tag, "isVisibleToUser ----> ${nodeInfo.isVisibleToUser}")
     Log.i(tag, "windowId ----> ${nodeInfo.windowId}")
 
-    if(nodeInfo.text == CLICK_BUTTON && i == 0) {
-        ++i
+    if(nodeInfo.text == CLICK_BUTTON) {
         performAction(nodeInfo)
     }
 
