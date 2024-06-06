@@ -38,7 +38,6 @@ class CodeLabAccessibilityService : AccessibilityService() {
         configurePowerButton()
         configureVolumeButton()
         configureScrollButton()
-        configureSwipeButton()
     }
 
     private fun configurePowerButton() {
@@ -83,18 +82,6 @@ class CodeLabAccessibilityService : AccessibilityService() {
             }
         }
         return null
-    }
-
-    private fun configureSwipeButton() {
-        val swipeButton = mLayout!!.findViewById<View>(R.id.swipe) as Button
-        swipeButton.setOnClickListener {
-            val swipePath = Path()
-            swipePath.moveTo(1000f, 1000f)
-            swipePath.lineTo(100f, 1000f)
-            val gestureBuilder = GestureDescription.Builder()
-            gestureBuilder.addStroke(StrokeDescription(swipePath, 0, 500))
-            dispatchGesture(gestureBuilder.build(), null, null)
-        }
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {}

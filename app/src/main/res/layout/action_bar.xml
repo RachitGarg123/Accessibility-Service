@@ -34,9 +34,4 @@
         android:text="@string/scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/swipe"
-        android:text="@string/swipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
